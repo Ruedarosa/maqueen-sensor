@@ -4,6 +4,7 @@ let red = 0
 let green = 0
 let BLUE = 0
 basic.forever(function () {
+    basic.showIcon(IconNames.Happy)
     if (maqueen.sensor(PingUnit.Centimeters) < 35 && maqueen.sensor(PingUnit.Centimeters) != 0) {
         item = Math.randomBoolean()
         if (item == true) {
@@ -15,7 +16,6 @@ basic.forever(function () {
         if (item == false) {
             maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CW, 0)
             maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CW, 255)
-            basic.showNumber(maqueen.sensor(PingUnit.Centimeters))
             basic.pause(800)
         }
     } else {
