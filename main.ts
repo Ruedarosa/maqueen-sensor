@@ -5,12 +5,35 @@ let green = 0
 let BLUE = 0
 basic.forever(function () {
     basic.showIcon(IconNames.Happy)
-    if (maqueen.sensor(PingUnit.Centimeters) < 35 && maqueen.sensor(PingUnit.Centimeters) != 0) {
+    basic.showLeds(`
+        # # # # #
+        . . . . #
+        . # # # #
+        . . . . #
+        # # # # #
+        `)
+    basic.showLeds(`
+        . # # # #
+        . . . . #
+        . . # # .
+        . # . . .
+        . # # # #
+        `)
+    basic.showLeds(`
+        . # # . .
+        . . # . .
+        . . # . .
+        . . # . .
+        . . # . .
+        `)
+    basic.showIcon(IconNames.Heart)
+    if (maqueen.sensor(PingUnit.Centimeters) < 20 && maqueen.sensor(PingUnit.Centimeters) != 0) {
         item = Math.randomBoolean()
         if (item == true) {
             maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CW, 255)
             maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CW, 0)
             basic.showNumber(maqueen.sensor(PingUnit.Centimeters))
+            basic.showIcon(IconNames.Sad)
             basic.pause(800)
         }
         if (item == false) {
